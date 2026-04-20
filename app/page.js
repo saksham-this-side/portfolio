@@ -19,7 +19,7 @@ export default function Home() {
               boxShadow: '0 0 30px rgba(0, 210, 255, 0.2)'
             }}>
               <img 
-                src="/profile.png" 
+                src="/portfolio/profile.png" 
                 alt="Saksham Vaishnav" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 onError={(e) => { e.target.src = 'https://via.placeholder.com/180?text=Saksham' }}
