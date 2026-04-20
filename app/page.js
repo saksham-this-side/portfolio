@@ -21,7 +21,7 @@ export default function Home() {
               <img 
                 src="profile.png" 
                 alt="Saksham Vaishnav" 
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '45% 10%' }}
                 onError={(e) => { e.target.src = 'https://via.placeholder.com/180?text=Saksham' }}
               />
             </div>
