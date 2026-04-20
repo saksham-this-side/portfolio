@@ -6,7 +6,7 @@ const nextConfig = {
   },
   // If your repository name is NOT 'username.github.io', 
   // uncomment the lines below and replace 'repository-name' with your repo name.
-  // basePath: '/repository-name',
+  basePath: '/portfolio',
 };
 
 export default nextConfig;
