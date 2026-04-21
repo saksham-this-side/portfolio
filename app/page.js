@@ -79,7 +79,7 @@ export default function Home() {
           </motion.p>
 
           <motion.div variants={fadeIn} style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
-            <a href="#projects" className="btn btn-primary">Download Resume</a>
+            <a href="resume.pdf" download="Saksham_Vaishnav_Resume.pdf" className="btn btn-primary">Download Resume</a>
             <a href="#contact" className="btn btn-outline">Let's Talk</a>
           </motion.div>
         </motion.div>
