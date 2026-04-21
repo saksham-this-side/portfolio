@@ -125,7 +125,7 @@ export default function Home() {
           {[
             {
               company: "Softinator Techlabs",
-              role: "Senior DevOps Engineer",
+              role: "DevOps Engineer",
               period: "May 2025 – Present",
               desc: "Engineering the future of FinStack, migrating legacy ECS to EKS with Zero-Downtime strategies.",
               tags: ["AWS EKS", "Terraform", "Prometheus"]
