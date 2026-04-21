@@ -86,7 +86,7 @@ export default function Home() {
       </section>
 
       {/* Bento Grid Stats */}
-      <section id="about" className="container" style={{ paddingTop: '10rem' }}>
+      <section id="about" className="container" style={{ paddingTop: '5rem' }}>
         <motion.div 
           className="bento-grid"
           initial="initial"
@@ -110,7 +110,7 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="container" style={{ paddingTop: '12rem' }}>
+      <section id="experience" className="container" style={{ paddingTop: '6rem' }}>
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -168,7 +168,7 @@ export default function Home() {
       </section>
 
       {/* Skills 2.0 */}
-      <section id="skills" className="container" style={{ paddingTop: '12rem' }}>
+      <section id="skills" className="container" style={{ paddingTop: '6rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
           {[
             { icon: <ShieldCheck />, title: "Infrastructure", skills: "Terraform, Ansible, CloudFormation, AWS CloudWatch" },
@@ -190,7 +190,7 @@ export default function Home() {
       </section>
 
       {/* Modern Contact */}
-      <section id="contact" className="container" style={{ textAlign: 'center', paddingTop: '12rem' }}>
+      <section id="contact" className="container" style={{ textAlign: 'center', paddingTop: '6rem' }}>
         <motion.div 
           className="glass" 
           style={{ padding: '6rem 2rem', background: 'radial-gradient(circle at bottom right, rgba(0, 210, 255, 0.05), transparent)' }}
