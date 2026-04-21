@@ -74,7 +74,7 @@ export default function Home() {
           </motion.h1>
 
           <motion.p variants={fadeIn} style={{ fontSize: '1.25rem', color: '#888', maxWidth: '650px', margin: '0 auto 3.5rem', fontWeight: 400 }}>
-            Hi, I am <strong style={{ color: '#fff' }}>Saksham Vaishnav</strong>. Specialist in EKS migration, 
+            Hi, I am <strong style={{ color: '#fff' }}>Saksham Vaishnav</strong>. Specialist in EKS, 
             GitOps automation, and production-grade observability.
           </motion.p>
 
@@ -86,7 +86,7 @@ export default function Home() {
       </section>
 
       {/* Bento Grid Stats */}
-      <section id="about" className="container" style={{ paddingTop: 0 }}>
+      <section id="about" className="container" style={{ paddingTop: '10rem' }}>
         <motion.div 
           className="bento-grid"
           initial="initial"
@@ -110,7 +110,7 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="container">
+      <section id="experience" className="container" style={{ paddingTop: '12rem' }}>
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -168,7 +168,7 @@ export default function Home() {
       </section>
 
       {/* Skills 2.0 */}
-      <section id="skills" className="container">
+      <section id="skills" className="container" style={{ paddingTop: '12rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
           {[
             { icon: <ShieldCheck />, title: "Infrastructure", skills: "Terraform, Ansible, CloudFormation, AWS CloudWatch" },
@@ -190,7 +190,7 @@ export default function Home() {
       </section>
 
       {/* Modern Contact */}
-      <section id="contact" className="container" style={{ textAlign: 'center' }}>
+      <section id="contact" className="container" style={{ textAlign: 'center', paddingTop: '12rem' }}>
         <motion.div 
           className="glass" 
           style={{ padding: '6rem 2rem', background: 'radial-gradient(circle at bottom right, rgba(0, 210, 255, 0.05), transparent)' }}
@@ -201,8 +201,8 @@ export default function Home() {
           <h2 style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>Let's Build Something <br /> <span className="gradient-text">Reliable.</span></h2>
           <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '4rem' }}>
             <a href="mailto:vaishnavsaksham20021218@gmail.com" className="btn btn-primary" style={{ minWidth: '180px' }}><Mail size={20} /> Email Me</a>
-            <a href="https://linkedin.com" className="btn btn-outline" style={{ minWidth: '180px' }}><Linkedin size={20} /> LinkedIn</a>
-            <a href="https://github.com" className="btn btn-outline" style={{ minWidth: '180px' }}><Github size={20} /> GitHub</a>
+            <a href="https://www.linkedin.com/in/saksham-vaishnav/" target="_blank" className="btn btn-outline" style={{ minWidth: '180px' }}><Linkedin size={20} /> LinkedIn</a>
+            <a href="https://github.com/saksham-this-side/" target="_blank" className="btn btn-outline" style={{ minWidth: '180px' }}><Github size={20} /> GitHub</a>
           </div>
         </motion.div>
         
