@@ -1,145 +1,213 @@
 'use client'
 
 import React from 'react'
-import { Cloud, Server, Code, Layers, Mail, Github, Linkedin, ExternalLink, ChevronDown } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Cloud, Server, Code, Layers, Mail, Github, Linkedin, ChevronDown, Rocket, ExternalLink, ShieldCheck, Terminal } from 'lucide-react'
+
+// Animation Variants
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: [0.19, 1, 0.22, 1] }
+}
+
+const stagger = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+}
 
 export default function Home() {
   return (
-    <main>
+    <main style={{ position: 'relative' }}>
+      {/* Background Orbs */}
+      <div className="glow-pulsing" style={{ 
+        position: 'fixed', top: '-10%', left: '-10%', width: '40vw', height: '40vw', 
+        background: 'radial-gradient(circle, rgba(0, 210, 255, 0.15) 0%, transparent 70%)', 
+        zIndex: -1, borderRadius: '50%', pointerEvents: 'none' 
+      }} />
+      <div className="glow-pulsing" style={{ 
+        position: 'fixed', bottom: '-10%', right: '-10%', width: '50vw', height: '50vw', 
+        background: 'radial-gradient(circle, rgba(157, 80, 187, 0.15) 0%, transparent 70%)', 
+        zIndex: -1, borderRadius: '50%', pointerEvents: 'none', animationDelay: '-3s' 
+      }} />
+
       {/* Hero Section */}
-      <section className="hero container">
-        <div className="hero-content">
-          <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center' }}>
-            <div className="glass float" style={{ 
-              width: '180px', 
-              height: '180px', 
-              borderRadius: '50%', 
-              overflow: 'hidden', 
-              border: '4px solid var(--glass-border)',
-              boxShadow: '0 0 30px rgba(0, 210, 255, 0.2)'
+      <section className="hero container" style={{ padding: '0 4rem' }}>
+        <motion.div 
+          className="hero-content"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={stagger}
+        >
+          <motion.div variants={fadeIn} style={{ marginBottom: '3rem', position: 'relative', display: 'flex', justifyContent: 'center' }}>
+            <div style={{
+              position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+              width: '250px', height: '250px', background: 'var(--primary)', filter: 'blur(80px)', opacity: 0.2
+            }} />
+            <div className="glass" style={{ 
+              width: '200px', height: '200px', borderRadius: '50%', padding: '4px', background: 'var(--glass-border)'
             }}>
-              <img 
-                src="profile.png" 
-                alt="Saksham Vaishnav" 
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '30% 5%' }}
-                onError={(e) => { e.target.src = 'https://via.placeholder.com/180?text=Saksham' }}
-              />
+              <div style={{ width: '100%', height: '100%', borderRadius: '50%', overflow: 'hidden', background: '#111' }}>
+                <img 
+                  src="profile.png" 
+                  alt="Saksham Vaishnav" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '30% 5%' }}
+                  onError={(e) => { e.target.src = 'https://via.placeholder.com/200' }}
+                />
+              </div>
             </div>
-          </div>
-          <div className="float" style={{ marginBottom: '1.5rem' }}>
-            <span className="mono gradient-text" style={{ fontSize: '1.2rem', fontWeight: 500 }}>
-              &lt; Namaste, world /&gt;
+          </motion.div>
+
+          <motion.div variants={fadeIn} style={{ marginBottom: '1.5rem' }}>
+            <span className="mono gradient-text" style={{ fontSize: '1rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.2em' }}>
+              &lt; Cloud Architect & DevOps /&gt;
             </span>
-          </div>
-          <h1 style={{ fontSize: 'clamp(3rem, 10vw, 5rem)', marginBottom: '1rem' }}>
-            I am <span className="gradient-text">Saksham Vaishnav</span>
-          </h1>
-          <p style={{ fontSize: '1.5rem', color: '#ccc', maxWidth: '700px', margin: '0 auto 2.5rem' }}>
-            Cloud-native engineer focused on <span style={{ color: 'var(--primary)' }}>Kubernetes</span> orchestration and 
-            scale-ready <span style={{ color: 'var(--secondary)' }}>DevOps</span> automation.
-          </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-            <a href="#projects" className="btn btn-primary">View My Work</a>
-            <a href="#contact" className="btn glass" style={{ color: 'white' }}>Get in Touch</a>
-          </div>
-          <div style={{ marginTop: '5rem', opacity: 0.5 }}>
-            <ChevronDown size={32} className="float" />
-          </div>
-        </div>
+          </motion.div>
+
+          <motion.h1 variants={fadeIn} style={{ fontSize: 'clamp(3.5rem, 12vw, 6.5rem)', lineHeight: 1, marginBottom: '2rem' }}>
+            Transforming Infrastructure <br /> 
+            <span className="gradient-text">Into Innovation.</span>
+          </motion.h1>
+
+          <motion.p variants={fadeIn} style={{ fontSize: '1.25rem', color: '#888', maxWidth: '650px', margin: '0 auto 3.5rem', fontWeight: 400 }}>
+            Hi, I am <strong style={{ color: '#fff' }}>Saksham Vaishnav</strong>. Specialist in EKS migration, 
+            GitOps automation, and production-grade observability.
+          </motion.p>
+
+          <motion.div variants={fadeIn} style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
+            <a href="#projects" className="btn btn-primary">Download Resume</a>
+            <a href="#contact" className="btn btn-outline">Let's Talk</a>
+          </motion.div>
+        </motion.div>
       </section>
 
-      {/* About / Stats */}
-      <section id="about" className="container">
-        <div className="glass" style={{ padding: '3rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
-          <div>
-            <h2 style={{ marginBottom: '1rem' }}>3+ Years</h2>
-            <p style={{ color: '#aaa' }}>Of hands-on experience in cloud infrastructure and CI/CD automation.</p>
-          </div>
-          <div>
-            <h2 style={{ marginBottom: '1rem' }}>EKS / GKE</h2>
-            <p style={{ color: '#aaa' }}>Specialized in production-grade Kubernetes clusters and managed node groups.</p>
-          </div>
-          <div>
-            <h2 style={{ marginBottom: '1rem' }}>IaC Pro</h2>
-            <p style={{ color: '#aaa' }}>Architecting infrastructure using Terraform, Helm, and GitOps workflows.</p>
-          </div>
-        </div>
+      {/* Bento Grid Stats */}
+      <section id="about" className="container" style={{ paddingTop: 0 }}>
+        <motion.div 
+          className="bento-grid"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={stagger}
+        >
+          <motion.div variants={fadeIn} className="glass" style={{ gridColumn: 'span 4', padding: '2.5rem' }}>
+            <div style={{ color: 'var(--primary)', marginBottom: '1.5rem' }}><Rocket size={32} /></div>
+            <h3 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>3+ Years</h3>
+            <p style={{ color: '#888' }}>Of engineering mission-critical cloud solutions on AWS & GCP.</p>
+          </motion.div>
+          <motion.div variants={fadeIn} className="glass" style={{ gridColumn: 'span 8', padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem' }} className="gradient-text">Cloud-Native Focus</h3>
+            <p style={{ color: '#888', fontSize: '1.1rem' }}>
+              I specialize in orchestrating complex microservices using Kubernetes (EKS/GKE), 
+              ensuring high availability through immutable infrastructure and automated remediation.
+            </p>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="container" style={{ paddingTop: '10rem' }}>
-        <h2 style={{ textAlign: 'center', fontSize: '3rem', marginBottom: '4rem' }} className="gradient-text">Professional Journey</h2>
-        <div className="timeline">
-          <div className="timeline-item left">
-            <div className="glass" style={{ padding: '2rem' }}>
-              <h3 className="gradient-text">Softinator Techlabs</h3>
-              <p className="mono" style={{ fontSize: '0.9rem', marginBottom: '1rem' }}>May 2025 – Present | DevOps Engineer</p>
-              <ul style={{ color: '#ccc', paddingLeft: '1.2rem', fontSize: '0.95rem' }}>
-                <li>Led migration of FinStack from AWS ECS to EKS with Managed Node Groups.</li>
-                <li>Authored Terraform modules for VPC, NAT Gateway, and DynamoDB.</li>
-                <li>Deployed Prometheus/Grafana stack on EKS using Amazon EFS.</li>
-              </ul>
-            </div>
-          </div>
-          <div className="timeline-item right">
-            <div className="glass" style={{ padding: '2rem' }}>
-              <h3 className="gradient-text">InfoKoders</h3>
-              <p className="mono" style={{ fontSize: '0.9rem', marginBottom: '1rem' }}>Sept 2023 – Apr 2025 | DevOps Engineer</p>
-              <ul style={{ color: '#ccc', paddingLeft: '1.2rem', fontSize: '0.95rem' }}>
-                <li>Designed multi-stage CI/CD pipelines with Jenkins and GitHub Actions.</li>
-                <li>Containerized microservices using Docker on AWS EC2.</li>
-                <li>Configured Monitoring and Alerting with Prometheus and Grafana.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section id="experience" className="container">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          style={{ textAlign: 'center', marginBottom: '6rem' }}
+        >
+          <h2 style={{ fontSize: '3.5rem' }} className="gradient-text">The Professional Journey</h2>
+          <p style={{ color: '#888', marginTop: '1rem' }}>A timeline of scaling systems and teams.</p>
+        </motion.div>
 
-      {/* Skills Secton */}
-      <section id="skills" className="container">
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <h2 style={{ fontSize: '3rem' }}>The Tech Stack</h2>
-          <p style={{ color: '#aaa' }}>Infrastructure as code, orchestration, and beyond.</p>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
           {[
-            { icon: <Cloud />, title: "Cloud", list: "AWS (EKS, EC2, S3, VPC, ALB)" },
-            { icon: <Server />, title: "Containers", list: "Docker, Kubernetes, Helm" },
-            { icon: <Code />, title: "IaC & CI/CD", list: "Terraform, Jenkins, ArgoCD" },
-            { icon: <Layers />, title: "Monitoring", list: "Prometheus, Grafana, CloudWatch" }
-          ].map((skill, idx) => (
-            <div key={idx} className="glass" style={{ padding: '2rem', textAlign: 'center', transition: 'all 0.3s ease' }}>
-              <div style={{ color: 'var(--primary)', marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
-                {React.cloneElement(skill.icon, { size: 40 })}
+            {
+              company: "Softinator Techlabs",
+              role: "Senior DevOps Engineer",
+              period: "May 2025 – Present",
+              desc: "Engineering the future of FinStack, migrating legacy ECS to EKS with Zero-Downtime strategies.",
+              tags: ["AWS EKS", "Terraform", "Prometheus"]
+            },
+            {
+              company: "InfoKoders",
+              role: "DevOps Engineer",
+              period: "Sept 2023 – Apr 2025",
+              desc: "Automated 80% of deployments using Jenkins/GitHub Actions pipelines and Dockerized services.",
+              tags: ["Docker", "Jenkins", "ELK Stack"]
+            }
+          ].map((exp, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, x: idx % 2 === 0 ? -30 : 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="glass"
+              style={{ padding: '3rem', borderLeft: '4px solid var(--primary)' }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
+                <div>
+                  <h3 style={{ fontSize: '1.8rem' }}>{exp.company}</h3>
+                  <p className="mono gradient-text" style={{ fontWeight: 500 }}>{exp.role}</p>
+                </div>
+                <p className="mono" style={{ color: '#555' }}>{exp.period}</p>
               </div>
-              <h3 style={{ marginBottom: '0.5rem' }}>{skill.title}</h3>
-              <p style={{ color: '#888', fontSize: '0.9rem' }}>{skill.list}</p>
-            </div>
+              <p style={{ color: '#aaa', fontSize: '1.1rem', marginBottom: '2rem' }}>{exp.desc}</p>
+              <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
+                {exp.tags.map(tag => (
+                  <span key={tag} className="mono" style={{ background: '#111', padding: '0.4rem 1rem', borderRadius: '100px', fontSize: '0.8rem', color: 'var(--primary)', border: '1px solid #222' }}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="container" style={{ textAlign: 'center' }}>
-        <div className="glass" style={{ padding: '4rem 2rem' }}>
-          <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }} className="gradient-text">Let's Connect</h2>
-          <p style={{ color: '#aaa', maxWidth: '600px', margin: '0 auto 3rem' }}>
-            Interested in scaling your infrastructure or automating your workflows? Let's talk about it.
-          </p>
-          <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="mailto:vaishnavsaksham20021218@gmail.com" className="btn glass" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'white' }}>
-              <Mail size={20} /> Email
-            </a>
-            <a href="https://github.com" target="_blank" className="btn glass" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'white' }}>
-              <Github size={20} /> GitHub
-            </a>
-            <a href="https://linkedin.com" target="_blank" className="btn glass" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'white' }}>
-              <Linkedin size={20} /> LinkedIn
-            </a>
-          </div>
+      {/* Skills 2.0 */}
+      <section id="skills" className="container">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+          {[
+            { icon: <ShieldCheck />, title: "Infrastructure", skills: "Terraform, Ansible, CloudFormation, AWS CloudWatch" },
+            { icon: <Terminal />, title: "Orchestration", skills: "Kubernetes (EKS/GKE), Helm, ArgoCD, Docker" },
+            { icon: <Code />, title: "Automation", skills: "GitHub Actions, Jenkins, Bash, Python, Git" }
+          ].map((item, idx) => (
+            <motion.div 
+              key={idx}
+              whileHover={{ y: -10 }}
+              className="glass" 
+              style={{ padding: '3rem' }}
+            >
+              <div style={{ color: 'var(--primary)', marginBottom: '1.5rem' }}>{React.cloneElement(item.icon, { size: 40 })}</div>
+              <h3 style={{ marginBottom: '1rem' }}>{item.title}</h3>
+              <p style={{ color: '#888', lineHeight: '1.8' }}>{item.skills}</p>
+            </motion.div>
+          ))}
         </div>
-        <footer style={{ marginTop: '6rem', color: '#555', fontSize: '0.9rem' }}>
-          <p>© 2026 Saksham Vaishnav. Built with Next.js and Cloud Vibe.</p>
+      </section>
+
+      {/* Modern Contact */}
+      <section id="contact" className="container" style={{ textAlign: 'center' }}>
+        <motion.div 
+          className="glass" 
+          style={{ padding: '6rem 2rem', background: 'radial-gradient(circle at bottom right, rgba(0, 210, 255, 0.05), transparent)' }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+        >
+          <h2 style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>Let's Build Something <br /> <span className="gradient-text">Reliable.</span></h2>
+          <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '4rem' }}>
+            <a href="mailto:vaishnavsaksham20021218@gmail.com" className="btn btn-primary" style={{ minWidth: '180px' }}><Mail size={20} /> Email Me</a>
+            <a href="https://linkedin.com" className="btn btn-outline" style={{ minWidth: '180px' }}><Linkedin size={20} /> LinkedIn</a>
+            <a href="https://github.com" className="btn btn-outline" style={{ minWidth: '180px' }}><Github size={20} /> GitHub</a>
+          </div>
+        </motion.div>
+        
+        <footer style={{ marginTop: '8rem', opacity: 0.4, fontSize: '0.9rem' }} className="mono">
+          <p>DESIGNED & ENGINEERED BY SAKSHAM VAISHNAV — 2026</p>
         </footer>
       </section>
     </main>
