@@ -67,7 +67,7 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="container">
+      <section id="experience" className="container" style={{ paddingTop: '10rem' }}>
         <h2 style={{ textAlign: 'center', fontSize: '3rem', marginBottom: '4rem' }} className="gradient-text">Professional Journey</h2>
         <div className="timeline">
           <div className="timeline-item left">
