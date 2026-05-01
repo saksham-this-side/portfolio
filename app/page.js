@@ -23,20 +23,20 @@ export default function Home() {
   return (
     <main style={{ position: 'relative' }}>
       {/* Background Orbs */}
-      <div className="glow-pulsing" style={{ 
-        position: 'fixed', top: '-10%', left: '-10%', width: '40vw', height: '40vw', 
-        background: 'radial-gradient(circle, rgba(0, 210, 255, 0.15) 0%, transparent 70%)', 
-        zIndex: -1, borderRadius: '50%', pointerEvents: 'none' 
+      <div className="glow-pulsing" style={{
+        position: 'fixed', top: '-10%', left: '-10%', width: '40vw', height: '40vw',
+        background: 'radial-gradient(circle, rgba(0, 210, 255, 0.15) 0%, transparent 70%)',
+        zIndex: -1, borderRadius: '50%', pointerEvents: 'none'
       }} />
-      <div className="glow-pulsing" style={{ 
-        position: 'fixed', bottom: '-10%', right: '-10%', width: '50vw', height: '50vw', 
-        background: 'radial-gradient(circle, rgba(157, 80, 187, 0.15) 0%, transparent 70%)', 
-        zIndex: -1, borderRadius: '50%', pointerEvents: 'none', animationDelay: '-3s' 
+      <div className="glow-pulsing" style={{
+        position: 'fixed', bottom: '-10%', right: '-10%', width: '50vw', height: '50vw',
+        background: 'radial-gradient(circle, rgba(157, 80, 187, 0.15) 0%, transparent 70%)',
+        zIndex: -1, borderRadius: '50%', pointerEvents: 'none', animationDelay: '-3s'
       }} />
 
       {/* Hero Section */}
       <section className="hero container" style={{ padding: '0 4rem' }}>
-        <motion.div 
+        <motion.div
           className="hero-content"
           initial="initial"
           whileInView="animate"
@@ -48,13 +48,13 @@ export default function Home() {
               position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
               width: '250px', height: '250px', background: 'var(--primary)', filter: 'blur(80px)', opacity: 0.2
             }} />
-            <div className="glass" style={{ 
+            <div className="glass" style={{
               width: '200px', height: '200px', borderRadius: '50%', padding: '4px', background: 'var(--glass-border)'
             }}>
               <div style={{ width: '100%', height: '100%', borderRadius: '50%', overflow: 'hidden', background: '#111' }}>
-                <img 
-                  src="profile.png" 
-                  alt="Saksham Vaishnav" 
+                <img
+                  src="profile.png"
+                  alt="Saksham Vaishnav"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '30% 5%' }}
                   onError={(e) => { e.target.src = 'https://via.placeholder.com/200' }}
                 />
@@ -69,12 +69,12 @@ export default function Home() {
           </motion.div>
 
           <motion.h1 variants={fadeIn} style={{ fontSize: 'clamp(3.5rem, 12vw, 6.5rem)', lineHeight: 1, marginBottom: '2rem' }}>
-            Transforming Infrastructure <br /> 
+            Transforming Infrastructure <br />
             <span className="gradient-text">Into Innovation.</span>
           </motion.h1>
 
           <motion.p variants={fadeIn} style={{ fontSize: '1.25rem', color: '#888', maxWidth: '650px', margin: '0 auto 3.5rem', fontWeight: 400 }}>
-            Hi, I am <strong style={{ color: '#fff' }}>Saksham Vaishnav</strong>. Specialist in EKS, 
+            Hi, I am <strong style={{ color: '#fff' }}>Saksham Vaishnav</strong>. Specialist in EKS,
             GitOps automation, and production-grade observability.
           </motion.p>
 
@@ -87,7 +87,7 @@ export default function Home() {
 
       {/* Bento Grid Stats */}
       <section id="about" className="container" style={{ paddingTop: '5rem' }}>
-        <motion.div 
+        <motion.div
           className="bento-grid"
           initial="initial"
           whileInView="animate"
@@ -102,7 +102,7 @@ export default function Home() {
           <motion.div variants={fadeIn} className="glass" style={{ gridColumn: 'span 8', padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem' }} className="gradient-text">Cloud-Native Focus</h3>
             <p style={{ color: '#888', fontSize: '1.1rem' }}>
-              I specialize in orchestrating complex microservices using Kubernetes (EKS/GKE), 
+              I specialize in orchestrating complex microservices using Kubernetes (EKS/GKE),
               ensuring high availability through immutable infrastructure and automated remediation.
             </p>
           </motion.div>
@@ -111,7 +111,7 @@ export default function Home() {
 
       {/* Experience Section */}
       <section id="experience" className="container" style={{ paddingTop: '6rem' }}>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -126,19 +126,12 @@ export default function Home() {
             {
               company: "Softinator Techlabs",
               role: "DevOps Engineer",
-              period: "May 2025 – Present",
+              period: "Sept 2023 – Present",
               desc: "Engineering the future of FinStack, migrating legacy ECS to EKS with Zero-Downtime strategies.",
-              tags: ["AWS EKS", "Terraform", "Prometheus"]
-            },
-            {
-              company: "InfoKoders",
-              role: "DevOps Engineer",
-              period: "Sept 2023 – Apr 2025",
-              desc: "Automated 80% of deployments using Jenkins/GitHub Actions pipelines and Dockerized services.",
-              tags: ["Docker", "Jenkins", "ELK Stack"]
+              tags: ["AWS EKS", "Terraform", "Prometheus", "Jenkins"]
             }
           ].map((exp, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               initial={{ opacity: 0, x: idx % 2 === 0 ? -30 : 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -175,10 +168,10 @@ export default function Home() {
             { icon: <Terminal />, title: "Orchestration", skills: "Kubernetes (EKS/GKE), Helm, ArgoCD, Docker" },
             { icon: <Code />, title: "Automation", skills: "GitHub Actions, Jenkins, Bash, Python, Git" }
           ].map((item, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               whileHover={{ y: -10 }}
-              className="glass" 
+              className="glass"
               style={{ padding: '3rem' }}
             >
               <div style={{ color: 'var(--primary)', marginBottom: '1.5rem' }}>{React.cloneElement(item.icon, { size: 40 })}</div>
@@ -191,8 +184,8 @@ export default function Home() {
 
       {/* Modern Contact */}
       <section id="contact" className="container" style={{ textAlign: 'center', paddingTop: '6rem' }}>
-        <motion.div 
-          className="glass" 
+        <motion.div
+          className="glass"
           style={{ padding: '6rem 2rem', background: 'radial-gradient(circle at bottom right, rgba(0, 210, 255, 0.05), transparent)' }}
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -205,7 +198,7 @@ export default function Home() {
             <a href="https://github.com/saksham-this-side/" target="_blank" className="btn btn-outline" style={{ minWidth: '180px' }}><Github size={20} /> GitHub</a>
           </div>
         </motion.div>
-        
+
         <footer style={{ marginTop: '8rem', opacity: 0.4, fontSize: '0.9rem' }} className="mono">
           <p>DESIGNED & ENGINEERED BY SAKSHAM VAISHNAV — 2026</p>
         </footer>
